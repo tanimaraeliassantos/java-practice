@@ -1,4 +1,4 @@
-package src.solid.srp.bad;
+package solid.srp.bad;
 public class Reservation {
     private String flightId;
     private String userId;
