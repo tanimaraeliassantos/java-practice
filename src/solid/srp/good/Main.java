@@ -1,16 +1,9 @@
 package solid.srp.good;
 
-import solid.srp.good.controllers.BookingController;
-import solid.srp.good.controllers.ReservationController;
-import solid.srp.good.models.Flight;
-import solid.srp.good.models.Reservation;
-import solid.srp.good.repositories.FlightImplRepository;
-import solid.srp.good.repositories.FlightRepository;
-import solid.srp.good.repositories.ReservationImplRepository;
-import solid.srp.good.repositories.ReservationRepository;
-import solid.srp.good.services.EmailService;
-import solid.srp.good.services.FlightBookingService;
-import solid.srp.good.services.PdfReportService;
+import solid.srp.good.controllers.*;
+import solid.srp.good.models.*;
+import solid.srp.good.repositories.*;
+import solid.srp.good.services.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -50,6 +43,26 @@ public class Main {
 
         Flight flight = new Flight("IB33180", "MAD", "BCN", 1000.0);
         bookingController.processBooking(flight, "U_1233", "tanimara@email.com");
+
+        System.out.println(" --- INICIANDO PRUEBA USERSERVICE --- ");
+        UserRepository userRepository = new UserImplRepository();
+        PasswordService passwordService = new PasswordService();
+        UserValidationService validationService = new UserValidationService();
+        ActivityLogService logService = new ActivityLogService();
+
+        UserService userService = new UserService(
+                userRepository,
+                passwordService,
+                validationService,
+                emailService,
+                logService);
+
+        UserController userController = new UserController(userService);
+
+        User newUser = userController.createUser(1L, "tanimara", "tani@email.com", "miPassword123");
+
+        System.out.println("Usuario registrado correctamente con ID: " + newUser.getId());
+        System.out.println(" --- FINALIZANDO PRUEBA USERSERVICE --- ");
     }
 
 }
