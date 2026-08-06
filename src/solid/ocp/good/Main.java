@@ -1,5 +1,6 @@
 package solid.ocp.good;
 
+import java.util.List;
 import solid.ocp.good.models.*;
 import solid.ocp.good.servicies.*;
 import solid.ocp.good.strategies.*;
@@ -37,5 +38,18 @@ public class Main {
         processor.process(bizum, monto);
 
         System.out.println("INICIAR TEST PAYMENT PROCESSOR OCP");
+        System.out.println("-----------");
+        System.out.println("INICIAR TEST FLIGHTSEARCH OCP");
+        FlightSearchService searchService = new FlightSearchService();
+
+        List<Flight> cheapResult = searchService.search(new CheapFlightSearch());
+        System.out.println("Búsqueda barata ejecutada. Vuelos devueltos: " + cheapResult.size());
+
+        List<Flight> fastResult = searchService.search(new FastFlightSearch());
+        System.out.println("Búsqueda rápida ejecutada. Vuelos devueltos: " + fastResult.size());
+
+        List<Flight> directResult = searchService.search(new DirectFlightSearch());
+        System.out.println("Búsqueda directa ejecutada. Vuelos devueltos: " + directResult.size());
+        System.out.println("FINALIZAR TEST FLIGHTSEARCH OCP");
     }
 }
