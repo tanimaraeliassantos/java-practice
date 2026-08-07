@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import model.Flight;
@@ -35,9 +36,69 @@ public class FlightService {
                 .filter(flight -> flight.getIsCancelled() == cancelled)
                 .findFirst();
     }
-    //Recorrer elementos de una lista,
-    //si cumple la condición, lo devuelvo
-    //si no los cumple, devuelvo null
 
+    // Recorrer elementos de una lista,
+    // si cumple la condición, lo devuelvo
+    // si no los cumple, devuelvo null
+    public Flight findByIdClassic(List<Flight> flights, String id) {
+        for (Flight flight : flights) {
+            if (flight.getId().equals(id)) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
+    public Flight findByOriginClassic(List<Flight> flights, String origin) {
+        for (Flight flight : flights) {
+            if (flight.getOrigin().equals(origin)) {
+                return flight;
+            }
+        }
+
+        return null;
+    }
+
+    public Flight findByDestinationClassic(List<Flight> flights, String destination) {
+        for (Flight flight : flights) {
+            if (flight.getDestination().equals(destination)) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
+    public Flight findByBasePrice(List<Flight> flights, double basePrice) {
+        for (Flight flight : flights) {
+            if (flight.getBasePrice() == basePrice) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
+    public Flight findByIsCancelledClassic(List<Flight> flights, boolean cancelled) {
+        for (Flight flight : flights) {
+            if (flight.getIsCancelled() == cancelled) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
+    // Filtrar una lista
+    // Crear una lista vacía de resultados para cada elemento
+    // Si cumple las condiciones -> añadirlo a resultados
+    // Devolver resultados
+    public List<Flight> filterByOrigin(List<Flight> flights, String origin) {
+        List<Flight> result = new ArrayList<>();
+
+        for (Flight flight : flights) {
+            if (!flight.getIsCancelled() && flight.getOrigin().equals(origin)) {
+                result.add(flight);
+            }
+        }
+        return null;
+    }
 
 }
