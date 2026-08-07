@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import model.Flight;
 import service.FlightService;
 
@@ -16,61 +15,101 @@ public class Main {
 
         FlightService service = new FlightService();
 
-        System.out.println("--- INICIANDO TEST FINDBYID ---");
-        Optional<Flight> resultado = service.findById(flights, "1");
-        System.out.println("Vuelo disponbile con el id 1: ");
-        resultado.ifPresent(System.out::println);
-        System.out.println("--- FINALIZANDO TEST FINDBYID ---");
+        // System.out.println("--- INICIANDO TEST FINDBYID ---");
+        // Optional<Flight> resultado = service.findById(flights, "1");
+        // System.out.println("Vuelo disponbile con el id 1: ");
+        // resultado.ifPresent(System.out::println);
+        // System.out.println("--- FINALIZANDO TEST FINDBYID ---");
 
-        System.out.println("--- INICIANDO TEST FINDBYDESTINATION ---");
-        Optional<Flight> resultado1 = service.findByDestination(flights, "FRA");
-        System.out.println("Vuelo disponible con destino a FRA");
-        resultado1.ifPresent(System.out::println);
-        System.out.println("--- FINALIZANDO TEST FINDBYDESTINATION ---");
+        // System.out.println("--- INICIANDO TEST FINDBYDESTINATION ---");
+        // Optional<Flight> resultado1 = service.findByDestination(flights, "FRA");
+        // System.out.println("Vuelo disponible con destino a FRA");
+        // resultado1.ifPresent(System.out::println);
+        // System.out.println("--- FINALIZANDO TEST FINDBYDESTINATION ---");
 
-        System.out.println("--- INICIANDO TEST FINDBYORIGIN ---");
-        Optional<Flight> resultado2 = service.findByOrigin(flights, "MAD");
-        System.out.println("Vuelo disponible con origen en MAD");
-        resultado2.ifPresent(System.out::println);
-        System.out.println("--- FINALIZANDO TEST FINDBYORIGIN ---");
+        // System.out.println("--- INICIANDO TEST FINDBYORIGIN ---");
+        // Optional<Flight> resultado2 = service.findByOrigin(flights, "MAD");
+        // System.out.println("Vuelo disponible con origen en MAD");
+        // resultado2.ifPresent(System.out::println);
+        // System.out.println("--- FINALIZANDO TEST FINDBYORIGIN ---");
 
-        System.out.println(" --- INICIANDO TEST FINDBYISCANCELLED ---");
-        Optional<Flight> resultado3 = service.findByIsCancelled(flights, true);
-        resultado3.ifPresent(System.out::println);
-        System.out.println("--- FINALIZANDO TEST FINBBYISCANCELLED ---");
+        // System.out.println(" --- INICIANDO TEST FINDBYISCANCELLED ---");
+        // Optional<Flight> resultado3 = service.findByIsCancelled(flights, true);
+        // resultado3.ifPresent(System.out::println);
+        // System.out.println("--- FINALIZANDO TEST FINBBYISCANCELLED ---");
 
-        System.out.println(" --- INICIANDO TEST FINDBYISNOTCANCELLED ---");
-        Optional<Flight> resultado4 = service.findByIsNotCancelled(flights, false);
-        resultado4.ifPresent(System.out::println);
-        System.out.println("--- FINALIZANDO TEST FINBBYISNOTCANCELLED ---");
+        // System.out.println(" --- INICIANDO TEST FINDBYISNOTCANCELLED ---");
+        // Optional<Flight> resultado4 = service.findByIsNotCancelled(flights, false);
+        // resultado4.ifPresent(System.out::println);
+        // System.out.println("--- FINALIZANDO TEST FINBBYISNOTCANCELLED ---");
 
-        System.out.println("--- INICIANDO TEST FINDBYIDCLASSIC ---");
-        Flight resultado5 = service.findByIdClassic(flights, "1");
-        System.out.println("Vuelo disponbile con el id 1: " + resultado5);
-        System.out.println("--- FINALIZANDO TEST FINDBYIDCLASSIC ---");
+        // System.out.println("--- INICIANDO TEST FINDBYIDCLASSIC ---");
+        // Flight resultado5 = service.findByIdClassic(flights, "1");
+        // System.out.println("Vuelo disponbile con el id 1: " + resultado5);
+        // System.out.println("--- FINALIZANDO TEST FINDBYIDCLASSIC ---");
 
-        System.out.println("--- INICIANDO TEST FINDBYORIGINCLASSIC ---");
-        Flight resultado6 = service.findByOriginClassic(flights, "MAD");
-        System.out.println("Vuelo disponible con el origen MAD: " + resultado6);
-        System.out.println("--- FINALIZANDO TEST FINDBYORIGINCLASSIC ---");
+        // System.out.println("--- INICIANDO TEST FINDBYORIGINCLASSIC ---");
+        // Flight resultado6 = service.findByOriginClassic(flights, "MAD");
+        // System.out.println("Vuelo disponible con el origen MAD: " + resultado6);
+        // System.out.println("--- FINALIZANDO TEST FINDBYORIGINCLASSIC ---");
 
-        System.out.println("--- INICIANDO TEST FINDBYDESTINATIONCLASSIC ---");
-        Flight resultado7 = service.findByDestinationClassic(flights, "AMS");
-        System.out.println("Vuelo disponible con el destino AMS: " + resultado7);
-        System.out.println("--- FINALIZANDO TEST FINDBYDESTINATIONCLASSIC ---");
+        // System.out.println("--- INICIANDO TEST FINDBYDESTINATIONCLASSIC ---");
+        // Flight resultado7 = service.findByDestinationClassic(flights, "AMS");
+        // System.out.println("Vuelo disponible con el destino AMS: " + resultado7);
+        // System.out.println("--- FINALIZANDO TEST FINDBYDESTINATIONCLASSIC ---");
 
-        System.out.println("--- INICIANDO TEST FINDBYBASEPRICECLASSIC ---");
-        Flight resultado8 = service.findByBasePrice(flights, 300.0);
-        System.out.println("Vuelo disponible con el valor de 300.0: " + resultado8);
-        System.out.println("--- FINALIZANDO TEST FINDBYBASEPRICECLASSIC ---");
+        // System.out.println("--- INICIANDO TEST FINDBYBASEPRICECLASSIC ---");
+        // Flight resultado8 = service.findByBasePrice(flights, 300.0);
+        // System.out.println("Vuelo disponible con el valor de 300.0: " + resultado8);
+        // System.out.println("--- FINALIZANDO TEST FINDBYBASEPRICECLASSIC ---");
 
-        System.out.println("--- INICIANDO TEST FINDBYISCANCELLEDCLASSIC ---");
-        Flight resultado9 = service.findByIsCancelledClassic(flights, true);
-        System.out.println("Vuelo cancelado: " + resultado9);
-        System.out.println("--- FINALIZANDO TEST FINDBYISCANCELLEDCLASSIC ---");
+        // System.out.println("--- INICIANDO TEST FINDBYISCANCELLEDCLASSIC ---");
+        // Flight resultado9 = service.findByIsCancelledClassic(flights, true);
+        // System.out.println("Vuelo cancelado: " + resultado9);
+        // System.out.println("--- FINALIZANDO TEST FINDBYISCANCELLEDCLASSIC ---");
 
-        System.out.println("--- INICIANDO TEST FILTERBYORIGIN ---");
-        Flight resultado10 = service.filterByOrigin(flights, origin)
+        // System.out.println("--- INICIANDO TEST FILTERBYORIGIN ---");
+        // List<Flight> resultado10 = service.filterByOrigin(flights, "MAD");
+        // if (resultado10.isEmpty()) {
+        // System.out.println("No se encontraron vuelos con origen MAD.");
+        // } else {
+        // for (Flight flight : resultado10) {
+        // System.out.println(flight);
+        // }
+        // }
+        // System.out.println("--- FINALIZANDO TEST FILTERBYORIGIN ---");
 
+        // System.out.println("--- INICIANDO TEST FILTERBYDESTINATION ---");
+        // List<Flight> resultado11 = service.filterByDestination(flights, "IBZ");
+        // if (resultado11.isEmpty()) {
+        // System.out.println("No se encontraron vuelos con destino a IBZ.");
+        // } else {
+        // for (Flight flight : resultado11) {
+        // System.out.println(flight);
+        // }
+        // }
+        // System.out.println("--- FINALIZANDO TEST FILTERBYDESTINATION ---");
+
+        // System.out.println("--- INICIANDO TEST FILTERBYMAXPRICE ---");
+        // List<Flight> resultado12 = service.filterByMaxPrice(flights, 200.0);
+        // if (resultado12.isEmpty()) {
+        // System.out.println("No se encontraron vuelos por debajo de ese precio.");
+        // } else {
+        // for (Flight flight : resultado12) {
+        // System.out.println(flight);
+        // }
+        // }
+        // System.out.println("--- FINALIZANDO TEST FILTERBYMAXPRICE ---");
+
+        System.out.println("--- INICIANDO TEST FILTERBYNOTCANCELLED ---");
+        List<Flight> resultado13 = service.filterByNotCancelled(flights, true);
+        if (resultado13.isEmpty()) {
+            System.out.println("No se encontraron vuelos no cancelados.");
+        } else {
+            for (Flight flight : resultado13) {
+                System.out.println(flight);
+            }
+        }
     }
+
 }

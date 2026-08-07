@@ -98,7 +98,42 @@ public class FlightService {
                 result.add(flight);
             }
         }
-        return null;
+        return result;
     }
+
+    public List<Flight> filterByDestination(List<Flight> flights, String destination) {
+        List<Flight> result = new ArrayList<>();
+
+        for (Flight flight : flights) {
+            if (!flight.getIsCancelled() && flight.getDestination().equals(destination)) {
+                result.add(flight);
+            }
+        }
+        return result;
+    }
+
+    public List<Flight> filterByMaxPrice(List<Flight> flights, double maxPrice) {
+        List<Flight> result = new ArrayList<>();
+
+        for (Flight flight : flights) {
+            if (!flight.getIsCancelled() && flight.getBasePrice() <= maxPrice) {
+                result.add(flight);
+            }
+        }
+        return result;
+    }
+
+    public List<Flight> filterByNotCancelled(List<Flight> flights, boolean cancelled) {
+        List<Flight> result = new ArrayList<>();
+
+        for (Flight flight : flights) {
+            if (!flight.getIsCancelled()) {
+                result.add(flight);
+            }
+        }
+        return result;
+    }
+
+    
 
 }
