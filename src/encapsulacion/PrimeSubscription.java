@@ -8,13 +8,14 @@ public class PrimeSubscription {
     private LocalDate endDate;
     private boolean active;
 
+    //Constructor
     public PrimeSubscription(String userId) {
         this.userId = userId;
         this.startDate = LocalDate.now();
         this.endDate = LocalDate.now().plusYears(1);
         this.active = true;
     }
-
+    //Metodos proprios
     public boolean isValid() {
         return active && LocalDate.now().isBefore(endDate);
     }
@@ -29,6 +30,7 @@ public class PrimeSubscription {
         this.active = false;
     }
 
+    //Getters
     public String getUserId() {
         return userId;
     }
