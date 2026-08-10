@@ -121,15 +121,23 @@ public class Main {
         // + flight.getBasePrice());
         // }
         // System.out.println("--- FINALIZANDO TEST FILTERBYORIGIN --- ");
-        System.out.println(" --- INICIANDO TEST FINDCHEAPEST ---");
-        Flight result = service.findCheapest(flights);
-        if (result != null) {
-            System.out.println("Vuelo más barato encontrado");
-            System.out.println("ID: " + result.getId() + " | Destino: " + result.getDestination() + " | Origen: "
-                    + result.getOrigin() + " | Precio: " + result.getBasePrice());
-        } else {
-            System.out.println("No se encontraron vuelos.");
-        }
-
+        // System.out.println(" --- INICIANDO TEST FINDCHEAPEST ---");
+        // Flight result = service.findCheapest(flights);
+        // if (result != null) {
+        // System.out.println("Vuelo más barato encontrado");
+        // System.out.println("ID: " + result.getId() + " | Destino: " +
+        // result.getDestination() + " | Origen: "
+        // + result.getOrigin() + " | Precio: " + result.getBasePrice());
+        // } else {
+        // System.out.println("No se encontraron vuelos.");
+        // }
+        // System.out.println(" --- INICIANDO TEST FINDCHEAPEST ---");
+        // System.out.println(" --- INICIANDO TEST FINDCHEAPEST STREAM ---");
+        // Optional<Flight> cheapest = service.findCheapest(flights);
+        // cheapest.ifPresentOrElse(
+        // flight -> System.out
+        // .println("El más barato es el con ID " + flight.getId() + " con precio de "
+        // + flight.getBasePrice()),
+        // () -> System.out.println("La lista de vuelos estaba vacía"));
     }
 }

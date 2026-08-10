@@ -1,6 +1,8 @@
 package service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import model.Flight;
 
 public class FlightService {
@@ -305,16 +307,21 @@ public class FlightService {
     //Para cada elemento siguiente
     //Si es menor que el mínimo actual -> actualizar mínimo
     //Devolver mínimo
-    public Flight findCheapest(List<Flight> flights) {
-        if(flights == null || flights.isEmpty()) return null;
+    // public Flight findCheapest(List<Flight> flights) {
+    //     if(flights == null || flights.isEmpty()) return null;
 
-        Flight cheapest = flights.get(0);
+    //     Flight cheapest = flights.get(0);
 
-        for (Flight flight: flights) {
-            if(flight.getBasePrice() < cheapest.getBasePrice()) {
-                cheapest=flight;
-            }
-        } return cheapest;
+    //     for (Flight flight: flights) {
+    //         if(flight.getBasePrice() < cheapest.getBasePrice()) {
+    //             cheapest=flight;
+    //         }
+    //     } return cheapest;
+    // }
+    //Encontrar el vuelo más barato usando stream
+    public Optional<Flight> findCheapest(List<Flight> flights) {
+        return flights.stream()
+            .min(Comparator.comparingDouble(Flight::getBasePrice));
     }
 
 }
