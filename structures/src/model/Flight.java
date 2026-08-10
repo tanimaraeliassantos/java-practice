@@ -31,11 +31,9 @@ public class Flight {
         return basePrice;
     }
 
-    public boolean getIsCancelled() {
+    public boolean isCancelled() {
         return cancelled;
     }
-
-
 
     @Override
     public String toString() {

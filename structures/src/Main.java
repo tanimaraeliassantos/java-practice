@@ -101,15 +101,35 @@ public class Main {
         // }
         // System.out.println("--- FINALIZANDO TEST FILTERBYMAXPRICE ---");
 
-        System.out.println("--- INICIANDO TEST FILTERBYNOTCANCELLED ---");
-        List<Flight> resultado13 = service.filterByNotCancelled(flights, true);
-        if (resultado13.isEmpty()) {
-            System.out.println("No se encontraron vuelos no cancelados.");
-        } else {
-            for (Flight flight : resultado13) {
-                System.out.println(flight);
-            }
-        }
-    }
+        // System.out.println("--- INICIANDO TEST FILTERBYNOTCANCELLED ---");
+        // List<Flight> resultado13 = service.filterByNotCancelled(flights, true);
+        // if (resultado13.isEmpty()) {
+        // System.out.println("No se encontraron vuelos no cancelados.");
+        // } else {
+        // for (Flight flight : resultado13) {
+        // System.out.println(flight);
+        // }
+        // }
 
+        // System.out.println("--- INICIANDO TEST FILTERBYORIGIN ---");
+        // List<Flight> result = service.filterByOrigin(flights, "MAD");
+        // System.out.println("Vuelos encontrados desde MAD: " + result.size());
+
+        // for (Flight flight : result) {
+        // System.out.println("ID: " + flight.getId() + " | Destino: " +
+        // flight.getDestination() + " | Precio: "
+        // + flight.getBasePrice());
+        // }
+        // System.out.println("--- FINALIZANDO TEST FILTERBYORIGIN --- ");
+        System.out.println(" --- INICIANDO TEST FINDCHEAPEST ---");
+        Flight result = service.findCheapest(flights);
+        if (result != null) {
+            System.out.println("Vuelo más barato encontrado");
+            System.out.println("ID: " + result.getId() + " | Destino: " + result.getDestination() + " | Origen: "
+                    + result.getOrigin() + " | Precio: " + result.getBasePrice());
+        } else {
+            System.out.println("No se encontraron vuelos.");
+        }
+
+    }
 }

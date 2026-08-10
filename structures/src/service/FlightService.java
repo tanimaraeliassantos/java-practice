@@ -1,6 +1,5 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.List;
 import model.Flight;
 
@@ -225,63 +224,97 @@ public class FlightService {
     // Recorrer cada elemento, si cumple las condiciones, añadirlo a los resultados
     // Si no cumple, no.
     // Devolver los resultados
-    public List<Flight> filterById(List<Flight> flights, String id) {
-        List<Flight> result = new ArrayList<>();
+    // public List<Flight> filterById(List<Flight> flights, String id) {
+    // List<Flight> result = new ArrayList<>();
 
-        for (Flight flight : flights) {
-            if (!flight.getIsCancelled() && flight.getId().equals(id)) {
-                result.add(flight);
-            }
-        }
-        return result;
-    }
+    // for (Flight flight : flights) {
+    // if (!flight.getIsCancelled() && flight.getId().equals(id)) {
+    // result.add(flight);
+    // }
+    // }
+    // return result;
+    // }
 
-    public List<Flight> filterByOrigin(List<Flight> flights, String origin) {
-        List<Flight> result = new ArrayList<>();
+    // public List<Flight> filterByOrigin(List<Flight> flights, String origin) {
+    // List<Flight> result = new ArrayList<>();
 
-        for (Flight flight : flights) {
-            if (!flight.getIsCancelled() && flight.getOrigin().equals(origin)) {
-                result.add(flight);
-            }
-        }
-        return result;
-    }
+    // for (Flight flight : flights) {
+    // if (!flight.getIsCancelled() && flight.getOrigin().equals(origin)) {
+    // result.add(flight);
+    // }
+    // }
+    // return result;
+    // }
 
     // crear una lista vacía para poner los resultados
     // recorrer cada elemento
     // si cumple la condición, añado a la lista
     // si no cumple, no.
     // devuelvo la lista
-    //Elijo ArrayList porque crece automaticamente cada vez que se add
-    //Es una operación rápida de O(1). Es la estructura de datos más
+    // Elijo ArrayList porque crece automaticamente cada vez que se add
+    // Es una operación rápida de O(1). Es la estructura de datos más
     // ligera y eficiente en memoria para operaciones secuenciales
-    public List<Flight> filterByDestination(List<Flight> flights, String destination) {
-        List<Flight> result = new ArrayList<>();
-        for (Flight flight : flights) {
-            if (!flight.getIsCancelled() && flight.getDestination().equals(destination)) {
-                result.add(flight);
-            }
-        }
-        return result;
-    }
+    // public List<Flight> filterByDestination(List<Flight> flights, String
+    // destination) {
+    // List<Flight> result = new ArrayList<>();
+    // for (Flight flight : flights) {
+    // if (!flight.getIsCancelled() && flight.getDestination().equals(destination))
+    // {
+    // result.add(flight);
+    // }
+    // }
+    // return result;
+    // }
 
-    public List<Flight> filterByMaxPrice(List<Flight> flights, double maxPrice) {
-        List<Flight> result = new ArrayList<>();
-        for(Flight flight: flights) {
-            if(!flight.getIsCancelled() && flight.getBasePrice() <= maxPrice) {
-                result.add(flight);
-            }
-        } return result;
-    }
+    // public List<Flight> filterByMaxPrice(List<Flight> flights, double maxPrice) {
+    // List<Flight> result = new ArrayList<>();
+    // for(Flight flight: flights) {
+    // if(!flight.getIsCancelled() && flight.getBasePrice() <= maxPrice) {
+    // result.add(flight);
+    // }
+    // } return result;
+    // }
 
-    public List<Flight> filterByMinPrice(List<Flight> flights, double minPrice) {
-        List<Flight> result = new ArrayList<>();
-        for(Flight flight: flights) {
-            if(!flight.getIsCancelled() && flight.getBasePrice() >= minPrice) {
-                result.add(flight);
+    // public List<Flight> filterByMinPrice(List<Flight> flights, double minPrice) {
+    // List<Flight> result = new ArrayList<>();
+    // for(Flight flight: flights) {
+    // if(!flight.getIsCancelled() && flight.getBasePrice() >= minPrice) {
+    // result.add(flight);
+    // }
+    // }
+    // return result;
+    // }
+
+    // Creamos una lista vacía para poner los resultados
+    // Recorremos cada elemento de nuestra lista vuelos
+    // si cumple la condición, añadimos a la lista
+    // si no, no.
+    // devuelvo la lista
+    // public List<Flight> filterByOrigin(List<Flight> flights, String origin) {
+    //     if (flights == null || origin == null) {
+    //         return List.of();
+    //     }
+    //     return flights.stream()
+    //             .filter(flight -> !flight.isCancelled())
+    //             .filter(flight -> flight.getOrigin().equals(origin))
+    //             .collect(Collectors.toList());
+    // }
+
+    //Encontrar el vuelo más barato
+    //Asumir que el primero es el mínimo
+    //Para cada elemento siguiente
+    //Si es menor que el mínimo actual -> actualizar mínimo
+    //Devolver mínimo
+    public Flight findCheapest(List<Flight> flights) {
+        if(flights == null || flights.isEmpty()) return null;
+
+        Flight cheapest = flights.get(0);
+
+        for (Flight flight: flights) {
+            if(flight.getBasePrice() < cheapest.getBasePrice()) {
+                cheapest=flight;
             }
-        }
-        return result;
+        } return cheapest;
     }
 
 }
