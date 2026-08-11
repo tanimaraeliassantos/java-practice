@@ -22,7 +22,7 @@ public class Flight {
         this.origin = origin;
         this.destination = destination;
         this.basePrice = basePrice;
-        this.cancelled = false;
+        this.cancelled = cancelled;
     }
 
     // Getters

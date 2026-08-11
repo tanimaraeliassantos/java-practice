@@ -32,6 +32,24 @@ public class Main {
             System.out.println("ID: " + flight.getId() + " | Origen: " + flight.getOrigin() + " | Destino: "
                     + flight.getDestination() + " | Precio: " + flight.getBasePrice());
         }
+        System.out.println("--- FINALIZANDO TEST FILTERAVAILABLEFLIGHTS ---");
+        System.out.println("--- INICIANDO TEST FINDCHEAPESTFLIGHTS ---");
+        List<Flight> baratos = service.getCheapestFlights(flights, 3);
+        System.out.println("Vuelos más baratos encontrados: " + baratos.size());
+        for (Flight flight : baratos) {
+            System.out.println("ID: " + flight.getId() + " | Origen: " + flight.getOrigin() + " | Destino: "
+                    + flight.getDestination() + " | Precio: " + flight.getBasePrice());
+        }
+        System.out.println("--- FINALIZANDO TEST FINDCHEAPESTFLIGHTS ---");
+        System.out.println("--- INICIANDO TEST FINDUNIQUEDESTINATION ---");
+        List<String> unique = service.getUniqueFlights(flights);
+        System.out.println("Vuelos con destinos únicos encontrados: " + unique.size());
+        for (String destino : unique) {
+            System.out.println("-" + destino);
+
+        }
+        System.out.println("--- FINALIZANDO TEST FINDUNIQUEDESTINATION ---");
+
     }
 
 }
