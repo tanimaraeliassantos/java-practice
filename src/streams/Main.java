@@ -2,6 +2,7 @@ package streams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,7 +50,12 @@ public class Main {
 
         }
         System.out.println("--- FINALIZANDO TEST FINDUNIQUEDESTINATION ---");
-
+        System.out.println("--- INICIANDO TEST COUNTUNIQUEDESTINATION ---");
+        Map<String, Long> uniqueCount = service.countFlightsByDestination(flights);
+        System.out.println("Vuelos con destinos únicos encontrados: " + uniqueCount.size());
+        uniqueCount.forEach((destination, count) -> System.out
+                .println("Destino: " + destination + " | Cantidad : " + count));
+        System.out.println("--- FNALIZANDO TEST COUNTUNIQUEDESTINATION ---");
     }
 
 }
