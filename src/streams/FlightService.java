@@ -2,6 +2,7 @@ package streams;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FlightService {
@@ -46,5 +47,14 @@ public class FlightService {
                 .distinct()
                 .sorted()
                 .collect(Collectors.toList());
+    }
+
+    // Contar vuelos por destino
+    public Map<String, Long> countFlightsByDestination(List<Flight> flights) {
+        return flights.stream()
+            .collect(Collectors.groupingBy(
+                Flight::getDestination,
+                Collectors.counting()
+            ));
     }
 }
